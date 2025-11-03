@@ -1,0 +1,9 @@
+{
+  "name": "Property Inspection Wizard",
+  "description": "A mobile-first wizard application to guide users through a detailed property inspection process, allowing them to capture photos, videos, comments, and documents for various systems and equipment.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}

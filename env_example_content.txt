@@ -1,0 +1,5 @@
+# This file is used for local development with the Firebase Emulator Suite.
+# Rename this file to ".env" and add your secret keys.
+# IMPORTANT: DO NOT commit the .env file to your version control (e.g., git).
+
+GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE"
