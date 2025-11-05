@@ -2,7 +2,7 @@ import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 import { GoogleGenAI } from "@google/genai";
 import { ImageAnnotatorClient } from "@google-cloud/vision";
-import * as cors from "cors";
+import cors from "cors";
 
 // Initialize Firebase Admin SDK
 admin.initializeApp();
@@ -72,7 +72,7 @@ export const processInspection = functions.https.onRequest((request, response) =
             model: 'gemini-2.5-flash',
             contents: prompt,
         });
-        aiSummary = result.text;
+        aiSummary = result.text ?? 'No summary generated';
       }
 
       // 2. Analyze the main photo with Vision API
