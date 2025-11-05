@@ -16,7 +16,7 @@ const geminiApiKey = process.env.GEMINI_API_KEY || functions.config().gemini.key
 if (!geminiApiKey) {
   console.error("Gemini API key not found. Please set it in environment variables.");
 }
-const genAI = new GoogleGenerativeAI("AIzaSyD8heCnKxSPJJa6xysQcV1DHo0rA8Q-FfU");
+const genAI = new GoogleGenAI("AIzaSyD8heCnKxSPJJa6xysQcV1DHo0rA8Q-FfU");
 
 
 const corsHandler = cors({ origin: true });
