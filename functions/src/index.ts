@@ -2,7 +2,7 @@ import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 import { GoogleGenAI } from "@google/genai";
 import { ImageAnnotatorClient } from "@google-cloud/vision";
-import * as cors from "cors";
+import cors from "cors";
 
 // Initialize Firebase Admin SDK
 admin.initializeApp();
@@ -16,7 +16,7 @@ const geminiApiKey = process.env.GEMINI_API_KEY || functions.config().gemini.key
 if (!geminiApiKey) {
   console.error("Gemini API key not found. Please set it in environment variables.");
 }
-const ai = new GoogleGenAI({ apiKey: geminiApiKey });
+const genAI = new GoogleGenAI("AIzaSyD8...");
 
 
 const corsHandler = cors({ origin: true });
@@ -68,7 +68,7 @@ export const processInspection = functions.https.onRequest((request, response) =
       let aiSummary = "No comments to analyze.";
       if (allComments.trim()) {
         const prompt = `Summarize the following property inspection notes, highlighting potential issues, risks, or areas needing maintenance:\n\n---\n${allComments.trim()}\n---`;
-        const result = await ai.models.generateContent({
+        const result = await model.generateContent(allComments){
             model: 'gemini-2.5-flash',
             contents: prompt,
         });
