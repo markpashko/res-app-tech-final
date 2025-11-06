@@ -68,7 +68,7 @@ export const processInspection = functions.https.onRequest((request, response) =
       let aiSummary = "No comments to analyze.";
       if (allComments.trim()) {
         const prompt = `Summarize the following property inspection notes, highlighting potential issues, risks, or areas needing maintenance:\n\n---\n${allComments.trim()}\n---`;
-        const result = await ai.models.generateContent({
+        const result = await model.generateContent(allComments){
             model: 'gemini-2.5-flash',
             contents: prompt,
         });
